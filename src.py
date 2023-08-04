@@ -7,7 +7,11 @@ source = "/mnt/chromeos/MyFiles/Downloads"
 target = "/mnt/chromeos/MyFiles/Downloads/placeholder"
 
 
+# specify the extensions allowed
+EXTS = ("jpg", "png", "jpeg", "mov", "mp4")
+
 files = os.listdir(source)
 
 for file in files:
-    print(file)
+    if (file.lower().endswith(tuple(EXTS))):
+        print(file)
