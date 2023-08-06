@@ -41,11 +41,25 @@ def get_date(folder, file):
     if (matchObj):
         year = matchObj.group(1)
         month = matchObj.group(2)
-        print(year)
-        print(month)
     else:
-        pass
+        dateCreated = creation_date(folder + "/" + file)
+        matchObj = re.match(DATE_PATTERN, dateCreated)
+        if (matchObj):
+            year = matchObj.group(1)
+            month = matchObj.group(2)
+        else:
+            year = "0"
+            month = "0"
+            print("Unable to get date: " + file)
+    return {"year": year, "month":month}
 
 for file in files:
     if (file.lower().endswith(tuple(EXTS))):
-        get_date(source, file)
+        date = get_date(source, file)
+        year = date["year"]
+        month = date["month"]
+
+        if (year == "0" or month == "0"):
+            continue
+
+        
