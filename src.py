@@ -33,7 +33,7 @@ def creation_date(path_to_file):
             # we're probably on Linux. No easy way to get creation date here,
             # so we'll settle for when its content was last modified
             timestamp = stat.st_mtime
-    return datetime.datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d %H:%M%S')
+    return datetime.datetime.fromtimestamp(timestamp).strftime('%Y-%m-d %H:%M%S')
 
 # get date
 def get_date(folder, file):
