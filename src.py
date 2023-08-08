@@ -35,7 +35,7 @@ def creation_date(path_to_file):
             timestamp = stat.st_mtime
     return datetime.datetime.fromtimestamp(timestamp).strftime('%Y-%m-d %H:%M%S')
 
-# get folder function (TODO: need to complete)
+
 def getFolder(year, monthNumber):
     if (monthNumber =="01 January"):
             monthFolder = "01 January"
@@ -43,6 +43,25 @@ def getFolder(year, monthNumber):
         monthFolder = "02 February"
     elif (monthNumber == "03 March"):
         monthFolder == "03 March"
+    elif (monthNumber == "04 April"):
+        monthFolder = "04 April"
+    elif (monthNumber == "05 May"):
+        monthFolder == "05 May"
+    elif (monthNumber == "06 June"):
+        monthFolder = "06 June"
+    elif (monthNumber == "07 July"):
+        monthFolder == "07 July"
+    elif (monthNumber == "08 August"):
+        monthFolder = "08 August"
+    elif (monthNumber == "09 September"):
+        monthFolder == "09 September"
+    elif (monthNumber == "10 October"):
+        monthFolder = "10 October"
+    elif (monthNumber == "11 November"):
+        monthFolder == "11 November"
+    elif (monthNumber == "12 December"):
+        monthFolder = "12 December"
+
 
     return year + "/" + monthFolder
 
@@ -72,5 +91,7 @@ for file in files:
 
         if (year == "0" or month == "0"):
             continue
+
+        folder = getFolder(year, month)
 
         
