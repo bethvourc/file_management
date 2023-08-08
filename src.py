@@ -2,6 +2,7 @@ import os
 import re
 import platform
 import datetime
+import shutil
 
 # script to sort out photos 
 
@@ -93,5 +94,21 @@ for file in files:
             continue
 
         folder = getFolder(year, month)
+
+        targetFolder = target + "/" + folder
+        if (not os.path.exists(targetFolder)):
+            os.makedirs(targetFolder)
+
+        sourceFile = source + "/" + file
+        targetFile = targetFolder + "/" + file
+        if(not os.path.exists(targetFile)):
+            shutil.move(sourceFile, targetFile)
+        
+        else:
+            if os.stat(sourceFile).st_size == os.stat(targetFile).st_size:
+                print("Duplicate file, deleting: " + file)
+                os.remove(sourceFile)
+            else:
+                print("Duplicate file, differnt size: " + file)
 
         
