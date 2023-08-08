@@ -35,6 +35,17 @@ def creation_date(path_to_file):
             timestamp = stat.st_mtime
     return datetime.datetime.fromtimestamp(timestamp).strftime('%Y-%m-d %H:%M%S')
 
+# get folder function (TODO: need to complete)
+def getFolder(year, monthNumber):
+    if (monthNumber =="01 January"):
+            monthFolder = "01 January"
+    elif (monthNumber == "02 February"):
+        monthFolder = "02 February"
+    elif (monthNumber == "03 March"):
+        monthFolder == "03 March"
+
+    return year + "/" + monthFolder
+
 # get date
 def get_date(folder, file):
     matchObj = re.match(DATE_PATTERN, file)
